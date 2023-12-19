@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(JobApp());
+}
+
+class JobApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Short-Term Jobs',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: JobListScreen(),
+    );
+  }
+}
+class JobListScreen extends StatelessWidget {
+  final List<String> jobTitles = [
+    'Delivery Driver',
+    'Event Staff',
+    'Data Entry',
+    // Add more job titles...
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Available Jobs'),
+      ),
+      body: ListView.builder(
+        itemCount: jobTitles.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(jobTitles[index]),
+            onTap: () {
+            // Navigate to job details or application form screen
+              // based on the selected job.
+              // You can implement this navigation here.
+              // Example:
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => JobDetailsScreen(jobTitles[index])),
+              // );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
